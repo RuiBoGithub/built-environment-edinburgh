@@ -13,8 +13,8 @@ nav:
   - name: Home
     link: /
   - name: About
-    link: /about
+    link: /about/
   - name: People
-    link: /people
+    link: /people/
   - name: Projects
-    link: /projects
+    link: /projects/
