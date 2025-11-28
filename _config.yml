@@ -1,0 +1,22 @@
+title: Your Research Group
+tagline: Building Energy, Modelling, Analytics & Data
+description: >
+  A minimal clean research group website powered by Jekyll and GitHub Pages.
+
+markdown: kramdown
+theme: null        # we use our own layouts
+sass:
+  style: expanded
+
+# Navigation menu
+nav:
+  - name: Home
+    link: /
+  - name: About
+    link: /about
+  - name: People
+    link: /people
+  - name: Projects
+    link: /projects
+  - name: Publications
+    link: /publications
