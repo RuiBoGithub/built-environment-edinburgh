@@ -25,7 +25,7 @@ Use this site to explore our people, projects, and publications!
     - Discussed future directions of the group, suggesting a page for showcasing each other's interest;
     - Talk 1&2
 
-> *Geographic Distribution of Audience*
+*Geographic Distribution of Audience*
 {% include map_audience.html %}
 
 {% include institutions_logos.html %}
