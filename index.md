@@ -12,7 +12,7 @@ It is a student-led group at the University of Edinburgh focused on research and
 
 Use this site to explore our people, projects, and publications!
 
-<img src="image_logo.png" alt="alt text" style="width:85%;" />
+<img src="image_logo.png" alt="alt text" style="width:95%;" />
 
 **Previous meetings**
 - 2025-06-02: First meeting!

@@ -7,6 +7,9 @@ description: >
 url: "https://ruibogithub.github.io"
 baseurl: "/built-environment-edinburgh"   # your repo name
 
+# Analytics
+google_analytics: G-XXXXXXX   # <-- add this line
+
 markdown: kramdown
 theme: null
 sass:
@@ -15,7 +18,9 @@ sass:
 # Navigation menu
 nav:
   - name: Home
-    link: /
+    link: /built-environment-edinburgh/
+  - name: About
+    link: /built-environment-edinburgh/about/
   - name: People
     link: /built-environment-edinburgh/people/
   - name: Projects
