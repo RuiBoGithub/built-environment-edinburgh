@@ -10,9 +10,9 @@ permalink: /projects/
 - Project 1
 > Description: [Brief description]
 > 
-> Timeline:** [Start date - End date]
+> Timeline: [Start date - End date]
 
 - Project 2
 > Description: [Brief description]
 >
-> Timeline:** [Start date - End date]
+> Timeline: [Start date - End date]
