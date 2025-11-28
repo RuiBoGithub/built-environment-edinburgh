@@ -12,7 +12,7 @@ It is a student-led group at the University of Edinburgh focused on research and
 
 Use this site to explore our people, projects, and publications!
 
-![alt text](image.png){: width="80%"}
+![alt text](image.png){: width="85%"}
 
 **Key updates**
 - 2025-11-27: Two members introduced their research in November group meeting!
@@ -31,192 +31,176 @@ Use this site to explore our people, projects, and publications!
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<!-- World GeoJSON -->
-<script src="https://rawcdn.githack.com/johan/world.geo.json/master/countries.geo.json"></script>
-
 <script>
 var map = L.map('map').setView([30, 0], 2);
 
-// Simple base map with white oceans
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
-  maxZoom: 6,
-  minZoom: 2,
-  attribution: '© OpenStreetMap contributors'
+// Simple base layer - white background for oceans
+L.tileLayer('', {
+    noWrap: true,
+    attribution: ''
 }).addTo(map);
 
-// Load your CSV data
-const csvData = `country,city,institution,latitude,longitude,participants
-United Kingdom,Edinburgh,IIE,55.944,-3.189,3
-United Kingdom,Edinburgh,IES,55.944,-3.189,2
-United Kingdom,Edinburgh,ESALA,55.944,-3.189,1
-France,Paris,PSL,48.8566,2.3522,1
-United States,Boston,Boston,42.3601,-71.0589,1`;
-
-function processCSV(text) {
-    const lines = text.trim().split("\n").slice(1);
-    const selectedCountries = new Set();
-    const cityData = {};
+// Load world countries GeoJSON
+fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json')
+  .then(response => response.json())
+  .then(worldData => {
     
-    // Process data and aggregate by city
-    lines.forEach(line => {
-        const [country, city, institution, lat, lon, participants] = line.split(",");
-        selectedCountries.add(country.trim());
+    // Load your CSV data
+    fetch("{{ '/assets/data/participants.csv' | relative_url }}")
+      .then(r => r.text())
+      .then(csvText => {
+        const lines = csvText.trim().split("\n").slice(1);
+        const countryParticipants = {};
+        const cityData = [];
         
-        const key = `${city}-${country}`;
-        if (!cityData[key]) {
-            cityData[key] = {
-                city: city.trim(),
-                country: country.trim(),
-                lat: parseFloat(lat),
-                lon: parseFloat(lon),
-                totalParticipants: 0,
-                institutions: []
-            };
-        }
-        
-        cityData[key].totalParticipants += parseInt(participants);
-        cityData[key].institutions.push({
-            name: institution.trim(),
-            participants: parseInt(participants)
+        // Process CSV data
+        lines.forEach(line => {
+          const [country, city, institution, lat, lon, participants] = line.split(",");
+          const participantsCount = parseInt(participants);
+          
+          // Aggregate by country
+          countryParticipants[country.trim()] = (countryParticipants[country.trim()] || 0) + participantsCount;
+          
+          // Store city data
+          cityData.push({
+            country: country.trim(),
+            city: city.trim(),
+            institution: institution.trim(),
+            lat: parseFloat(lat),
+            lon: parseFloat(lon),
+            participants: participantsCount
+          });
         });
-    });
-    
-    return { selectedCountries, cityData: Object.values(cityData) };
-}
 
-const { selectedCountries, cityData } = processCSV(csvData);
-
-// Style for countries - colored for selected, grey for others
-function styleCountry(feature) {
-    const countryName = feature.properties.name;
-    if (selectedCountries.has(countryName)) {
-        return {
-            fillColor: "#4A90E2",  // Nice blue for selected countries
+        // Style countries based on participation
+        function styleCountry(feature) {
+          const countryName = feature.properties.name;
+          const hasParticipants = countryParticipants[countryName] > 0;
+          
+          return {
+            fillColor: hasParticipants ? 
+              getColorByCount(countryParticipants[countryName]) : 
+              '#e0e0e0', // Grey for non-participating countries
             weight: 1,
             opacity: 1,
-            color: "#2C3E50",      // Dark border
-            fillOpacity: 0.7,
-            dashArray: null
+            color: hasParticipants ? '#666' : '#ccc',
+            fillOpacity: hasParticipants ? 0.8 : 0.4,
+            className: 'country-boundary'
+          };
+        }
+
+        // Color scale for participating countries
+        function getColorByCount(count) {
+          if (count >= 5) return '#1976d2'; // Dark blue for high participation
+          if (count >= 2) return '#42a5f5'; // Medium blue
+          return '#90caf9'; // Light blue for single participants
+        }
+
+        // Add countries to map
+        L.geoJSON(worldData, {
+          style: styleCountry,
+          onEachFeature: function(feature, layer) {
+            const countryName = feature.properties.name;
+            const count = countryParticipants[countryName] || 0;
+            if (count > 0) {
+              layer.bindTooltip(`${countryName}: ${count} participants`, {
+                permanent: false,
+                direction: 'auto'
+              });
+            }
+          }
+        }).addTo(map);
+
+        // Add city circles with institution details
+        cityData.forEach(data => {
+          const radius = Math.sqrt(data.participants) * 80000; // Scale factor for visibility
+          
+          const circle = L.circle([data.lat, data.lon], {
+            radius: radius,
+            fillColor: '#ff6b35',
+            color: '#e64a19',
+            weight: 2,
+            fillOpacity: 0.6
+          }).addTo(map);
+          
+          // Create detailed popup content
+          const popupContent = `
+            <div style="min-width: 200px;">
+              <h4 style="margin: 0 0 8px 0; color: #333;">${data.city}, ${data.country}</h4>
+              <hr style="margin: 8px 0;">
+              <p style="margin: 4px 0;"><strong>Institution:</strong> ${data.institution}</p>
+              <p style="margin: 4px 0;"><strong>Participants:</strong> ${data.participants}</p>
+              <div style="display: flex; align-items: center; margin-top: 8px;">
+                <div style="width: 12px; height: 12px; background: #ff6b35; border-radius: 50%; margin-right: 8px;"></div>
+                <span style="font-size: 12px; color: #666;">Circle size represents participant count</span>
+              </div>
+            </div>
+          `;
+          
+          circle.bindPopup(popupContent);
+          
+          // Add tooltip on hover
+          circle.bindTooltip(`
+            <strong>${data.city}</strong><br>
+            ${data.institution}<br>
+            ${data.participants} participant${data.participants > 1 ? 's' : ''}
+          `);
+        });
+
+        // Add legend
+        const legend = L.control({ position: 'bottomright' });
+        legend.onAdd = function(map) {
+          const div = L.DomUtil.create('div', 'info legend');
+          div.style.backgroundColor = 'white';
+          div.style.padding = '10px';
+          div.style.borderRadius = '5px';
+          div.style.boxShadow = '0 0 15px rgba(0,0,0,0.2)';
+          
+          div.innerHTML = `
+            <h4 style="margin: 0 0 8px 0;">Participants</h4>
+            <div style="display: flex; align-items: center; margin: 4px 0;">
+              <div style="width: 12px; height: 12px; background: #90caf9; border-radius: 50%; margin-right: 8px;"></div>
+              <span>1 participant</span>
+            </div>
+            <div style="display: flex; align-items: center; margin: 4px 0;">
+              <div style="width: 12px; height: 12px; background: #42a5f5; border-radius: 50%; margin-right: 8px;"></div>
+              <span>2-4 participants</span>
+            </div>
+            <div style="display: flex; align-items: center; margin: 4px 0;">
+              <div style="width: 12px; height: 12px; background: #1976d2; border-radius: 50%; margin-right: 8px;"></div>
+              <span>5+ participants</span>
+            </div>
+            <hr style="margin: 8px 0;">
+            <div style="display: flex; align-items: center; margin: 4px 0;">
+              <div style="width: 12px; height: 12px; background: #e0e0e0; border-radius: 50%; margin-right: 8px;"></div>
+              <span>No participants</span>
+            </div>
+          `;
+          return div;
         };
-    }
-    return {
-        fillColor: "#BDC3C7",      // Light grey for other countries
-        weight: 0.5,
-        opacity: 0.8,
-        color: "#95A5A6",          // Light border
-        fillOpacity: 0.4,
-        dashArray: null
-    };
+        legend.addTo(map);
+
+      });
+  })
+  .catch(error => console.error('Error loading map data:', error));
+</script>
+
+<style>
+.country-boundary {
+  pointer-events: auto;
 }
 
-// Add colored countries to map
-L.geoJSON(world_geo_json, { 
-    style: styleCountry,
-    onEachFeature: function(feature, layer) {
-        const countryName = feature.properties.name;
-        if (selectedCountries.has(countryName)) {
-            layer.bindTooltip(countryName, {
-                permanent: false,
-                direction: 'center',
-                className: 'country-label'
-            });
-        }
-    }
-}).addTo(map);
-
-// Add city circles with participant counts
-cityData.forEach(city => {
-    // Calculate circle radius based on total participants
-    const baseRadius = 50000; // Base size
-    const radius = baseRadius * Math.sqrt(city.totalParticipants);
-    
-    // Create circle with gradient effect
-    const circle = L.circle([city.lat, city.lon], {
-        radius: radius,
-        fillColor: "#E74C3C",
-        color: "#C0392B",
-        weight: 2,
-        fillOpacity: 0.6
-    }).addTo(map);
-    
-    // Create popup content with institution details
-    let popupContent = `<div style="min-width: 200px;">
-        <h3 style="margin: 0 0 10px 0; color: #2C3E50;">${city.city}, ${city.country}</h3>
-        <div style="background: #E74C3C; color: white; padding: 5px 10px; border-radius: 3px; display: inline-block; margin-bottom: 10px;">
-            <strong>Total Participants: ${city.totalParticipants}</strong>
-        </div>
-        <table style="width: 100%; border-collapse: collapse;">
-            <tr style="background: #F8F9FA;">
-                <th style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">Institution</th>
-                <th style="padding: 8px; text-align: right; border-bottom: 1px solid #ddd;">Participants</th>
-            </tr>`;
-    
-    city.institutions.forEach(inst => {
-        popupContent += `
-            <tr>
-                <td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${inst.name}</td>
-                <td style="padding: 6px 8px; text-align: right; border-bottom: 1px solid #eee;">${inst.participants}</td>
-            </tr>`;
-    });
-    
-    popupContent += `</table></div>`;
-    
-    circle.bindPopup(popupContent);
-    
-    // Add participant count label next to circle
-    const label = L.marker([city.lat, city.lon], {
-        icon: L.divIcon({
-            className: 'participant-label',
-            html: `<div style="
-                background: rgba(231, 76, 60, 0.9);
-                color: white;
-                padding: 4px 8px;
-                border-radius: 12px;
-                font-weight: bold;
-                font-size: 12px;
-                border: 2px solid white;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            ">${city.totalParticipants}</div>`,
-            iconSize: [40, 20],
-            iconAnchor: [20, 10]
-        })
-    }).addTo(map);
-});
-
-// Add legend
-const legend = L.control({ position: 'bottomright' });
-legend.onAdd = function(map) {
-    const div = L.DomUtil.create('div', 'info legend');
-    div.innerHTML = `
-        <h4>Participants Map</h4>
-        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-            <div><span style="background: #4A90E2; display: inline-block; width: 20px; height: 15px; margin-right: 5px;"></span> Selected Countries</div>
-            <div><span style="background: #BDC3C7; display: inline-block; width: 20px; height: 15px; margin-right: 5px;"></span> Other Countries</div>
-            <div><span style="background: #E74C3C; display: inline-block; width: 15px; height: 15px; border-radius: 50%; margin-right: 5px;"></span> Participant Cities</div>
-            <div style="margin-top: 5px; font-size: 12px;">Circle size = Number of participants</div>
-        </div>
-    `;
-    return div;
-};
-legend.addTo(map);
-
-// Custom CSS for better styling
-const style = document.createElement('style');
-style.textContent = `
-    .country-label {
-        background: transparent;
-        border: none;
-        box-shadow: none;
-        font-weight: bold;
-        color: #2C3E50;
-        text-shadow: 1px 1px 2px white;
-    }
-    .participant-label {
-        background: transparent;
-        border: none;
-    }
-`;
-document.head.appendChild(style);
-</script>
+.legend {
+  line-height: 18px;
+  color: #555;
+}
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+</style>
 
 Note: We host sessions that welcome audiences from external organisations, and presentations and discussions are encouraged!
