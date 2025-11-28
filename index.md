@@ -23,9 +23,8 @@ Use this site to explore our people, projects, and publications!
 
 > *Geographic Distribution of Audience*
 
-<div class="map-wrapper">
-  {% include map_audience.html %}
-</div>
+>  {% include map_audience.html %}
+
 
 
 

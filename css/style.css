@@ -55,7 +55,3 @@ h1, h2, h3 {
   font-weight: 600;
   margin-bottom: 15px;
 }
-.map-wrapper {
-  width: 80%;
-  margin: 0 auto;     /* centres it */
-}
