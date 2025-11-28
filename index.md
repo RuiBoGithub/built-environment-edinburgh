@@ -15,8 +15,9 @@ Use this site to explore our people, projects, and publications!
 <img src="image_logo.png" alt="alt text" style="width:95%;" />
 
 **Future activities**
+- TBC: Meeting in December
 - TBC: Semester-2 meetings
-- TBC: Solstice meeting in December meeting
+
 
 **Previous meetings**
 - 2025-06-02: First meeting!
