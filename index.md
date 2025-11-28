@@ -29,41 +29,83 @@ Participants:
 
 
 **Collaboration Map**
+## Geographic Distribution of Audience
 
-<div id="map" style="height: 500px; margin-bottom:25px; border-radius: 8px;"></div>
+<div id="map" style="height: 550px; margin-bottom:25px;"></div>
 
+<!-- Leaflet -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<script>
-var map = L.map('map').setView([54.5, -2], 5);
+<!-- World GeoJSON (countries) -->
+<script src="https://rawcdn.githack.com/johan/world.geo.json/master/countries.geo.json"></script>
 
+<script>
+var map = L.map('map').setView([30, 0], 2);
+
+// Base map
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 18
+  maxZoom: 5,
+  minZoom: 2
 }).addTo(map);
 
+// Load your CSV
 fetch("{{ '/assets/data/participants.csv' | relative_url }}")
   .then(r => r.text())
   .then(text => {
-    const rows = text.trim().split("\n").slice(1);
+    const lines = text.trim().split("\n").slice(1);
+    const selectedCountries = new Set();
+    const cityMarkers = [];
 
-    rows.forEach(row => {
-      const [institution, lat, lon, count] = row.split(",");
-      const n = parseInt(count);
-
-      const radius = n * 20000; // adjust scale
-
-      L.circle([parseFloat(lat), parseFloat(lon)], {
-        radius: radius,
-        color: "rgba(30,144,255,0.4)",
-        fillColor: "rgba(30,144,255,0.25)",
-        fillOpacity: 0.45,
-        weight: 1
-      })
-      .addTo(map)
-      .bindPopup(`<b>${institution}</b><br>${n} participants`);
+    lines.forEach(line => {
+      const [country, city, lat, lon, participants] = line.split(",");
+      selectedCountries.add(country.trim());
+      cityMarkers.push({
+        city: city,
+        lat: parseFloat(lat),
+        lon: parseFloat(lon),
+        participants: parseInt(participants)
+      });
     });
-});
+
+    // Style for countries
+    function styleCountry(feature) {
+      const name = feature.properties.name;
+      if (selectedCountries.has(name)) {
+        return {
+          fillColor: "rgba(30,144,255,0.6)",  // Blue
+          weight: 1,
+          opacity: 1,
+          color: "#333",
+          fillOpacity: 0.7
+        };
+      }
+      return {
+        fillColor: "rgba(200,200,200,0.4)", // Grey for others
+        weight: 1,
+        opacity: 1,
+        color: "#aaa",
+        fillOpacity: 0.5
+      };
+    }
+
+    // Add coloured countries
+    L.geoJSON(world_geo_json, { style: styleCountry }).addTo(map);
+
+    // Add city bubble markers (optional)
+    cityMarkers.forEach(m => {
+      L.circle([m.lat, m.lon], {
+        radius: m.participants * 20000,
+        fillColor: "rgba(30,144,255,0.3)",
+        color: "rgba(30,144,255,0.5)",
+        weight: 1,
+        fillOpacity: 0.5
+      }).addTo(map)
+      .bindPopup(`<b>${m.city}</b><br>${m.participants} participants`);
+    });
+
+  });
 </script>
+
 
 Note: We have sessions that welcome audience from external bodies (research institues), with presentation and discussion welcomed!
