@@ -3,18 +3,22 @@ tagline: to create a sustainable and resilient environment
 description: >
   A minimal clean research group website powered by Jekyll and GitHub Pages.
 
+# Required for GitHub Pages
+url: "https://ruibogithub.github.io"
+baseurl: "/built-environment-edinburgh"   # your repo name
+
 markdown: kramdown
-theme: null        # we use our own layouts
+theme: null
 sass:
   style: expanded
 
 # Navigation menu
 nav:
   - name: Home
-    link: /
+    link: "{{ '/' | relative_url }}"
   - name: About
-    link: /about/
+    link: "{{ '/about/' | relative_url }}"
   - name: People
-    link: /people/
+    link: "{{ '/people/' | relative_url }}"
   - name: Projects
-    link: /projects/
+    link: "{{ '/projects/' | relative_url }}"
