@@ -8,14 +8,18 @@
 fetch("{{ '/assets/data/participants.csv' | relative_url }}")
   .then(r => r.text())
   .then(text => {
-    const rows = text.trim().split("").slice(1);
-    const data = rows.map(line => {
-      const [country, city, inst, lat, lon, participants] = line.split(",");
-      return {
-        institution: inst.trim(),
-        participants: +participants
-      };
-    });
+    // Split by line, remove header
+    const rows = text.trim().split("\n").slice(1);
+
+    const data = rows
+      .map(line => {
+        const [country, city, inst, lat, lon, participants] = line.split(",");
+        return {
+          institution: inst.trim(),
+          participants: +participants
+        };
+      })
+      .filter(d => d.institution && !isNaN(d.participants));
 
     // Sort institutions by participant count
     data.sort((a, b) => b.participants - a.participants);
@@ -43,10 +47,10 @@ fetch("{{ '/assets/data/participants.csv' | relative_url }}")
       .range([0, height])
       .padding(0.2);
 
-    // Colour map
+    // Colour scale
     const color = d3.scaleSequential()
       .domain([1, d3.max(data, d => d.participants)])
-      .interpolator(d3.interpolateBlues(d3.interpolateBlues);
+      .interpolator(d3.interpolateBlues);
 
     // Bars
     svg.selectAll("rect")

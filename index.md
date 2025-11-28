@@ -14,6 +14,10 @@ Use this site to explore our people, projects, and publications!
 
 <img src="image_logo.png" alt="alt text" style="width:95%;" />
 
+**Future activities**
+- TBC: Semester-2 meetings
+- TBC: Solstice meeting in December meeting
+
 **Previous meetings**
 - 2025-06-02: First meeting!
 - 2025-10-17: New semester meeting!
@@ -30,11 +34,11 @@ Use this site to explore our people, projects, and publications!
 
 >  {% include institutions_chart.html %}
 
+<div style="display: flex; gap: 10px; align-items: center;">
+  <img src="/assets/img/esala.png" style="height: 60px; object-fit: contain;">
+  <img src="/assets/img/iie.png" style="height: 60px; object-fit: contain;">
+  <img src="/assets/img/ies.png" style="height: 60px; object-fit: contain;">
+</div>
 
-
-**Future activities**
-- TBC: Semester-2 meetings
-- TBC: Solstice meeting in December meeting
-
-**Contacts**  
-[Rui](mailto:rui.bo@ed.ac.uk)
+**Main Contacts**
+Everyone is very welcome to join any knowledge-sharing session. To sign up, please email [Rui Bo](mailto:rui.bo@ed.ac.uk).
