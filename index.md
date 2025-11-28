@@ -30,13 +30,11 @@ Use this site to explore our people, projects, and publications!
 >  {% include map_audience.html %}
 
 > *Institutions of Audience*
->  {% include institutions_chart.html %}
+>  {% include institutions_logos %}
 
-<div style="display: flex; gap: 12px; align-items: center;">
-  <img src="{{ '/assets/img/esala.png' | relative_url }}" height="60">
-  <img src="{{ '/assets/img/iie.png'  | relative_url }}" height="60">
-  <img src="{{ '/assets/img/ies.png'  | relative_url }}" height="60">
-</div>
+
+
+
 
 
 **Main Contacts**
