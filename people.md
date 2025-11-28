@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: page
 title: People
 permalink: /people/
 ---
+
 
 # Our Team
 
