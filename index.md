@@ -29,8 +29,38 @@ Participants:
 
 
 
-**Collaboration Map**
+**Geographic Distribution of Audience**
+<div id="svg-map" style="width: 100%; height: 550px; margin-bottom:25px;"></div>
 
+<script>
+// Simple SVG world map with minimal styling
+fetch("{{ '/assets/data/participants.csv' | relative_url }}")
+  .then(r => r.text())
+  .then(text => {
+    const lines = text.trim().split("\n").slice(1);
+    const countryData = {};
+    
+    lines.forEach(line => {
+      const [country, city, lat, lon, participants] = line.split(",");
+      countryData[country.trim()] = (countryData[country.trim()] || 0) + parseInt(participants);
+    });
+
+    // Simple SVG approach
+    const svg = `<svg viewBox="0 0 800 400" style="width:100%; height:100%; background:#f8f9fa;">
+      <!-- Simple world outline -->
+      <path d="M100,200 Q300,150 500,200 Q700,250 600,300 Q400,350 200,300 Z" 
+            fill="none" stroke="#ddd" stroke-width="1"/>
+      
+      ${Object.entries(countryData).map(([country, count]) => `
+        <circle cx="${100 + Math.random() * 600}" cy="${100 + Math.random() * 200}" 
+                r="${Math.sqrt(count) * 3}" 
+                fill="#1976d2" fill-opacity="0.7" stroke="#0d47a1" stroke-width="1"/>
+      `).join('')}
+    </svg>`;
+    
+    document.getElementById('svg-map').innerHTML = svg;
+  });
+</script>
 
 
 
