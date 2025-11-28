@@ -1,4 +1,5 @@
-<div id="inst-chart" style="width: 80%; margin: 20px auto;"></div>
+<!-- Container for the pie chart -->
+<div id="inst-pie" style="width: 450px; margin: 0 auto;"></div>
 
 <!-- D3.js -->
 <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -16,69 +17,54 @@ fetch("{{ '/assets/data/participants.csv' | relative_url }}")
       };
     });
 
-    // Sort by participant count descending
-    data.sort((a, b) => b.participants - a.participants);
+    // Dimensions
+    const width = 450;
+    const height = 450;
+    const radius = Math.min(width, height) / 2;
 
-    // Chart dimensions
-    const width = 700;
-    const height = data.length * 40;
-    const margin = { top: 20, right: 20, bottom: 40, left: 150 };
-
-    const svg = d3.select("#inst-chart")
+    const svg = d3.select("#inst-pie")
       .append("svg")
       .attr("width", width)
-      .attr("height", height + margin.top + margin.bottom)
+      .attr("height", height)
       .append("g")
-      .attr("transform", `translate(${margin.left},${margin.top})`);
+      .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
-    const x = d3.scaleLinear()
-      .domain([0, d3.max(data, d => d.participants)])
-      .range([0, width - margin.left - margin.right]);
-
-    const y = d3.scaleBand()
+    // Colour map
+    const color = d3.scaleOrdinal()
       .domain(data.map(d => d.institution))
-      .range([0, height])
-      .padding(0.2);
+      .range(d3.schemeCategory10);
 
-    // Bars
-    svg.selectAll(".bar")
-      .data(data)
+    // Pie layout
+    const pie = d3.pie()
+      .value(d => d.participants);
+
+    const arc = d3.arc()
+      .innerRadius(0)
+      .outerRadius(radius - 10);
+
+    // Draw slices
+    svg.selectAll("slice")
+      .data(pie(data))
       .enter()
-      .append("rect")
-      .attr("class", "bar")
-      .attr("y", d => y(d.institution))
-      .attr("width", d => x(d.participants))
-      .attr("height", y.bandwidth())
-      .attr("fill", "#1976d2");
+      .append("path")
+      .attr("d", arc)
+      .attr("fill", d => color(d.data.institution))
+      .style("stroke", "white")
+      .style("stroke-width", "2px");
 
-    // Labels (numbers)
-    svg.selectAll(".label")
-      .data(data)
+    // Labels
+    const labelArc = d3.arc()
+      .innerRadius(radius * 0.6)
+      .outerRadius(radius * 0.6);
+
+    svg.selectAll("text")
+      .data(pie(data))
       .enter()
       .append("text")
-      .attr("x", d => x(d.participants) + 5)
-      .attr("y", d => y(d.institution) + y.bandwidth() / 1.6)
-      .text(d => d.participants)
-      .style("font-size", "13px")
-      .style("fill", "#333");
-
-    // Axes
-    svg.append("g")
-      .attr("class", "y-axis")
-      .call(d3.axisLeft(y));
-
-    svg.append("g")
-      .attr("class", "x-axis")
-      .attr("transform", `translate(0, ${height})`)
-      .call(d3.axisBottom(x).ticks(5));
-
-    // Title
-    svg.append("text")
-      .attr("x", (width - margin.left - margin.right) / 2)
-      .attr("y", -5)
+      .attr("transform", d => `translate(${labelArc.centroid(d)})`)
       .attr("text-anchor", "middle")
-      .style("font-size", "18px")
-      .style("font-weight", "bold")
-      .text("Participants by Institution");
+      .style("font-size", "12px")
+      .style("fill", "#333")
+      .text(d => `${d.data.institution} (${d.data.participants})`);
   });
 </script>
