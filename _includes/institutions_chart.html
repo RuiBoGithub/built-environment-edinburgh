@@ -1,0 +1,84 @@
+<div id="inst-chart" style="width: 80%; margin: 20px auto;"></div>
+
+<!-- D3.js -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+<script>
+fetch("{{ '/assets/data/participants.csv' | relative_url }}")
+  .then(r => r.text())
+  .then(text => {
+    const rows = text.trim().split("\n").slice(1);
+    const data = rows.map(line => {
+      const [country, city, inst, lat, lon, participants] = line.split(",");
+      return {
+        institution: inst.trim(),
+        participants: +participants
+      };
+    });
+
+    // Sort by participant count descending
+    data.sort((a, b) => b.participants - a.participants);
+
+    // Chart dimensions
+    const width = 700;
+    const height = data.length * 40;
+    const margin = { top: 20, right: 20, bottom: 40, left: 150 };
+
+    const svg = d3.select("#inst-chart")
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    const x = d3.scaleLinear()
+      .domain([0, d3.max(data, d => d.participants)])
+      .range([0, width - margin.left - margin.right]);
+
+    const y = d3.scaleBand()
+      .domain(data.map(d => d.institution))
+      .range([0, height])
+      .padding(0.2);
+
+    // Bars
+    svg.selectAll(".bar")
+      .data(data)
+      .enter()
+      .append("rect")
+      .attr("class", "bar")
+      .attr("y", d => y(d.institution))
+      .attr("width", d => x(d.participants))
+      .attr("height", y.bandwidth())
+      .attr("fill", "#1976d2");
+
+    // Labels (numbers)
+    svg.selectAll(".label")
+      .data(data)
+      .enter()
+      .append("text")
+      .attr("x", d => x(d.participants) + 5)
+      .attr("y", d => y(d.institution) + y.bandwidth() / 1.6)
+      .text(d => d.participants)
+      .style("font-size", "13px")
+      .style("fill", "#333");
+
+    // Axes
+    svg.append("g")
+      .attr("class", "y-axis")
+      .call(d3.axisLeft(y));
+
+    svg.append("g")
+      .attr("class", "x-axis")
+      .attr("transform", `translate(0, ${height})`)
+      .call(d3.axisBottom(x).ticks(5));
+
+    // Title
+    svg.append("text")
+      .attr("x", (width - margin.left - margin.right) / 2)
+      .attr("y", -5)
+      .attr("text-anchor", "middle")
+      .style("font-size", "18px")
+      .style("font-weight", "bold")
+      .text("Participants by Institution");
+  });
+</script>
