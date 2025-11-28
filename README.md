@@ -1,7 +1,12 @@
-Welcome to **Built-Environment-Edinburgh**. 
+Welcome to **Built-Environment-Edinburgh**.
 
-We are a student-led group at the University of Edinburgh, dedicated to research and knowledge exchange in sustainable and resilient built environments. We welcome participation from both internal and external collaborators, including professionals, researchers, and practitioners interested in building science.
-
-We aim to host monthly events, ranging from project talks and research sharing to skill-development sessions (including academic writing and related workshops).
-
-Use this site to explore our people, projects, and publications.
+- We are a student-led group at the University of Edinburgh focused on research and knowledge exchange in **sustainable and resilient built environments**.
+- We welcome participation from:
+  - Internal students
+  - External collaborators
+- Our activities include **monthly events**, such as:
+  - Project presentations
+  - Research-sharing sessions
+  - Skill-development workshops (e.g., academic writing and related training)
+ 
+This is a space to update, share, and engage with ongoing work in the **Built-Environment-Edinburgh** community.
