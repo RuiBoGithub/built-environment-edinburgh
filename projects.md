@@ -4,14 +4,13 @@ title: Projects
 permalink: /projects/
 ---
 
-# Current Projects
+**Projects at `Built Environment Edinburgh` community!**
 
-## Project 1
-**Description:** [Brief description]
-**Timeline:** [Start date - End date]
-**Team:** [Team members]
 
-## Project 2
-**Description:** [Brief description]
-**Timeline:** [Start date - End date]
-**Team:** [Team members]
+- Project 1
+> Description: [Brief description]
+> Timeline:** [Start date - End date]
+
+- Project 2
+> Description: [Brief description]
+> Timeline:** [Start date - End date]

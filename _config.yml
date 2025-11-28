@@ -16,10 +16,7 @@ sass:
 nav:
   - name: Home
     link: /
-  - name: About
-    link: /built-environment-edinburgh/about/
   - name: People
     link: /built-environment-edinburgh/people/
   - name: Projects
     link: /built-environment-edinburgh/projects/
-
