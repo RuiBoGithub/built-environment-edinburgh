@@ -28,7 +28,6 @@ Use this site to explore our people, projects, and publications!
 > *Geographic Distribution of Audience*
 {% include map_audience.html %}
 
-> *Institutions of Audience*
 {% include institutions_logos.html %}
 
 
