@@ -15,10 +15,11 @@ sass:
 # Navigation menu
 nav:
   - name: Home
-    link: "{{ '/' | relative_url }}"
+    link: /
   - name: About
-    link: "{{ '/about/' | relative_url }}"
+    link: /built-environment-edinburgh/about/
   - name: People
-    link: "{{ '/people/' | relative_url }}"
+    link: /built-environment-edinburgh/people/
   - name: Projects
-    link: "{{ '/projects/' | relative_url }}"
+    link: /built-environment-edinburgh/projects/
+
