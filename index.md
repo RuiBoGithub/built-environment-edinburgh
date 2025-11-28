@@ -22,9 +22,9 @@ Use this site to explore our people, projects, and publications!
     - Talk 1&2
 
 <div class="blockquote-box">
-*Geographic Distribution of Audience*
+  <p><em>Geographic Distribution of Audience</em></p>
 
-{% include map_audience.html %}
+  {% include map_audience.html %}
 </div>
 
 
