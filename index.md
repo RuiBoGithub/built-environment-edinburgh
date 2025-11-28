@@ -12,8 +12,7 @@ It is a student-led group at the University of Edinburgh focused on research and
 
 Use this site to explore our people, projects, and publications!
 
-![alt text](image_logo.png){: width="85%"}
-
+<img src="image_logo.png" alt="alt text" style="width:85%;" />
 
 **Previous meetings**
 - 2025-06-02: First meeting!
@@ -23,7 +22,6 @@ Use this site to explore our people, projects, and publications!
     - Talk 1&2
 
 *Geographic Distribution of Audience*
-Note: We host sessions that welcome audiences from external organisations, and presentations and discussions are encouraged!
 <div id="map" style="height: 550px; margin-bottom:25px;"></div>
 
 <!-- Leaflet -->
@@ -33,10 +31,10 @@ Note: We host sessions that welcome audiences from external organisations, and p
 <script>
 var map = L.map('map').setView([30, 0], 2);
 
-// Simple base layer - white background for oceans
-L.tileLayer('', {
-    noWrap: true,
-    attribution: ''
+// White background for oceans - using a simple tile layer with white background
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+    attribution: '©OpenStreetMap, ©CartoDB',
+    noWrap: true
 }).addTo(map);
 
 // Load world countries GeoJSON
@@ -200,10 +198,35 @@ fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.g
   margin-right: 8px;
   opacity: 0.7;
 }
+
+/* Ensure map background is white */
+#map {
+  background: white;
+}
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 **Future activities**
 - TBC: Semester-2 meetings
 - TBC: Solstice meeting in December meeting
 
-**Contacts**
+**Contacts**  
+[Rui](mailto:rui.bo@ed.ac.uk)
