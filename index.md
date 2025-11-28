@@ -12,19 +12,18 @@ It is a student-led group at the University of Edinburgh focused on research and
 
 Use this site to explore our people, projects, and publications!
 
-![alt text](image.png){: width="85%"}
+![alt text](image_logo.png){: width="85%"}
 
-**Key updates**
-- 2025-11-27: Two members introduced their research in November group meeting!
-- 2025-10-17: New semester meeting!
+
+**Previous meetings**
 - 2025-06-02: First meeting!
+- 2025-10-17: New semester meeting!
+- 2025-11-27: Two members introduced their research in November group meeting!
+    - Discussed future directions of the group, suggesting a page for showcasing each other's interest;
+    - Talk 1&2
 
-**Future activities**
-- TBC: Semester-2 meetings
-- TBC: Solstice meeting in December meeting
-
-
-**Geographic Distribution of Audience**
+*Geographic Distribution of Audience*
+Note: We host sessions that welcome audiences from external organisations, and presentations and discussions are encouraged!
 <div id="map" style="height: 550px; margin-bottom:25px;"></div>
 
 <!-- Leaflet -->
@@ -203,4 +202,8 @@ fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.g
 }
 </style>
 
-Note: We host sessions that welcome audiences from external organisations, and presentations and discussions are encouraged!
+**Future activities**
+- TBC: Semester-2 meetings
+- TBC: Solstice meeting in December meeting
+
+**Contacts**
