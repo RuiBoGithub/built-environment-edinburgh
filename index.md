@@ -25,7 +25,7 @@ Use this site to explore our people, projects, and publications!
 
 >  {% include map_audience.html %}
 
-> *Institutions Represented*
+> *Institutions of Audience*
 
 
 >  {% include institutions_chart.html %}
