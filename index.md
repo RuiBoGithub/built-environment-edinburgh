@@ -22,36 +22,49 @@ Use this site to explore our people, projects, and publications.
 Participants:
 --
 **Collaboration Map**
-<div id="map" style="height: 450px; margin-bottom:20px;"></div>
+## Audience Distribution Map
 
+<div id="map" style="height: 500px; margin-bottom:25px; border-radius: 8px;"></div>
+
+<!-- Leaflet -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-// Create map centered on UK/Europe
-var map = L.map('map').setView([54.5, -2], 5);
+// 1. Create map
+var map = L.map('map').setView([54.5, -2], 5);  // UK-centered
 
-// Tile layer
+// 2. Add base layer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 18
+  maxZoom: 18,
+  attribution: ''
 }).addTo(map);
 
-// Load CSV dynamically
+// 3. Load CSV and draw circles
 fetch("/assets/data/participants.csv")
   .then(response => response.text())
-  .then(data => {
-    const rows = data.trim().split("\n").slice(1); // drop header
-    rows.forEach(row => {
-      const [institution, lat, lon, participants] = row.split(",");
+  .then(text => {
+    const rows = text.trim().split("\n").slice(1);
 
-      // Add marker for each row
-      L.marker([parseFloat(lat), parseFloat(lon)]).addTo(map)
-        .bindPopup(`
-          <b>${institution}</b><br>
-          Participants: ${participants}
-        `);
+    rows.forEach(row => {
+      const [institution, lat, lon, count] = row.split(",");
+      const n = parseInt(count);
+
+      // Scale radius (adjust multiplier as needed)
+      const radius = n * 20000;  // 20 km * participants
+
+      // Add circle marker
+      L.circle([parseFloat(lat), parseFloat(lon)], {
+        radius: radius,
+        color: "rgba(0, 100, 255, 0.4)",
+        fillColor: "rgba(0, 100, 255, 0.25)",
+        fillOpacity: 0.5,
+        weight: 1
+      }).addTo(map)
+        .bindPopup(`<b>${institution}</b><br>${n} participants`);
     });
   });
 </script>
+
 
 Note: We have sessions that welcome audience from external bodies (research institues), with presentation and discussion welcomed!
