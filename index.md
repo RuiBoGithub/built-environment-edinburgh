@@ -26,12 +26,10 @@ Use this site to explore our people, projects, and publications!
     - Talk 1&2
 
 > *Geographic Distribution of Audience*
-
->  {% include map_audience.html %}
+{% include map_audience.html %}
 
 > *Institutions of Audience*
->  {% include institutions_logos %}
-
+{% include institutions_logos.html %}
 
 
 
