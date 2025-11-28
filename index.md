@@ -21,9 +21,9 @@ Use this site to explore our people, projects, and publications!
     - Discussed future directions of the group, suggesting a page for showcasing each other's interest;
     - Talk 1&2
 
-<div class="blockquote-box">
-  <p><em>Geographic Distribution of Audience</em></p>
+> *Geographic Distribution of Audience*
 
+<div class="map-wrapper">
   {% include map_audience.html %}
 </div>
 
