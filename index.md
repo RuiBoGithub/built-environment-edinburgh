@@ -30,15 +30,14 @@ Use this site to explore our people, projects, and publications!
 >  {% include map_audience.html %}
 
 > *Institutions of Audience*
-
-
 >  {% include institutions_chart.html %}
 
-<div style="display: flex; gap: 10px; align-items: center;">
-  <img src="/assets/img/esala.png" style="height: 60px; object-fit: contain;">
-  <img src="/assets/img/iie.png" style="height: 60px; object-fit: contain;">
-  <img src="/assets/img/ies.png" style="height: 60px; object-fit: contain;">
+<div style="display: flex; gap: 12px; align-items: center;">
+  <img src="{{ '/assets/img/esala.png' | relative_url }}" height="60">
+  <img src="{{ '/assets/img/iie.png'  | relative_url }}" height="60">
+  <img src="{{ '/assets/img/ies.png'  | relative_url }}" height="60">
 </div>
+
 
 **Main Contacts**
 Everyone is very welcome to join any knowledge-sharing session. To sign up, please email [Rui Bo](mailto:rui.bo@ed.ac.uk).
