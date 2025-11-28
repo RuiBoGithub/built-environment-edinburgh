@@ -8,8 +8,7 @@
 fetch("{{ '/assets/data/participants.csv' | relative_url }}")
   .then(r => r.text())
   .then(text => {
-    const rows = text.trim().split("
-").slice(1);
+    const rows = text.trim().split("").slice(1);
     const data = rows.map(line => {
       const [country, city, inst, lat, lon, participants] = line.split(",");
       return {
