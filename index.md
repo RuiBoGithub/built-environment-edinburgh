@@ -29,12 +29,7 @@ Use this site to explore our people, projects, and publications!
 *Geographic Distribution of Audience*
 {% include map_audience.html %}
 
-{% include institutions_logos.html %}
-
-
-
-
-
 **Main Contacts**
 
 Everyone is very welcome to join any knowledge-sharing session. Please [email](mailto:rui.bo@ed.ac.uk) for sign up.
+{% include institutions_logos.html %}
