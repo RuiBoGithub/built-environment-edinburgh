@@ -5,17 +5,18 @@ title: Home
 
 **Welcome to `Built Environment Edinburgh` community page!**
 
-It is a student-led group at the University of Edinburgh focused on research and knowledge exchange in *sustainable and resilient built environments*, where both internal and external participation is welcomed. Main activities include *monthly events*, such as:
-  - Project presentations
-  - Research-sharing sessions
-  - Skill-development workshops (e.g., academic writing and related training)
+It is a student-led group at the [University of Edinburgh](https://www.ed.ac.uk/) focused on research and knowledge exchange in *sustainable and resilient built environments*, where both internal and external participation is welcomed. 
+Main activities include *monthly events*, such as:
+
+  - Research sharing sessions
+  - Research workshops (collect peer opinions!)
+  - Collaborative projects
 
 Use this site to explore our people, projects, and publications!
-
 <img src="image_logo.png" alt="alt text" style="width:95%;" />
 
 **Future activities**
-- 2026-Feb: 
+- 2026-02-27: 
 - Recurring Meetings in on last Friday of each month (at Murchison House G.04 for on-site audience)
 
 **Previous meetings**
