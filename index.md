@@ -2,10 +2,10 @@
 layout: default
 title: Home
 ---
-
 ## **Welcome to `Built Environment Edinburgh` community page!**
-
-It is a PhD student-led group at the [University of Edinburgh](https://www.ed.ac.uk/) focused on research and knowledge exchange in *sustainable and resilient built environments*, where both internal and external participation is welcomed. 
+It is a PhD student-led group at the [University of Edinburgh](https://www.ed.ac.uk/) focused on research and knowledge exchange in *sustainable and resilient built environments*, where both internal and external participation is welcomed. So far, we have:
+- **6** meetings/workshops co-created<br>
+- **4** PhD work presented<br>
 
 <div class="countdown-container">
     <h3 style="margin-top: 0; color: #2c3e50;">
@@ -20,22 +20,7 @@ It is a PhD student-led group at the [University of Edinburgh](https://www.ed.ac
     <div class="meeting-schedule" id="next-meeting-date">
         📍 Every last Friday of the month at 13:00 UK time
     </div>
-    
-    <div style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
-        <strong>📊 Community Stats:</strong><br>
-        • 6 meetings co-created<br>
-        • 4 PhD work presentations<br>
-        • Workshops coming soon!
-    </div>
-    
-    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #ddd;">
-        <small style="color: #888;">
-            ⏰ Countdown updates in real-time. Refresh page if countdown seems off.
-        </small>
-    </div>
 </div>
-
-<script src="{{ '/assets/js/meeting-countdown.js' | relative_url }}"></script>
 
 <script src="{{ '/assets/js/meeting-countdown.js' | relative_url }}"></script>
 
