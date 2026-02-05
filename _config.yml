@@ -6,6 +6,7 @@ Powered by Jekyll and GitHub Pages.
 # Required for GitHub Pages
 url: "https://ruibogithub.github.io"
 baseurl: "/built-environment-edinburgh"
+google_analytics: G-XXXXXXX
 markdown: kramdown
 theme: null
 sass:
