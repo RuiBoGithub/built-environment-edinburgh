@@ -23,8 +23,8 @@ Use this site to explore our people, projects, and publications!
 - 2025-10-17: New semester meeting!
 - 2025-11-27: Two members introduced their research in November group meeting!
     - Discussed future directions of the group, suggesting a page for showcasing each other's interest;
-    - Talk 1&2
-- 2026-01-30: A follow-up presentation from Rui!
+    - Presentation from Androniki and Rui.
+- 2026-01-30: A follow-up presentation from Rui.
 
 *Geographic Distribution of Audience*
 {% include map_audience.html %}
