@@ -9,7 +9,7 @@ It is a PhD student-led group at the [University of Edinburgh](https://www.ed.ac
 
 <div class="countdown-container">
     <h3 style="margin-top: 0; color: #2c3e50;">
-        🗓️ Next Built Environment Edinburgh Meeting
+        🗓️ Next Meeting
     </h3>
     
     <div class="countdown-display" id="meeting-countdown">
