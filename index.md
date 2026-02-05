@@ -15,9 +15,8 @@ Use this site to explore our people, projects, and publications!
 <img src="image_logo.png" alt="alt text" style="width:95%;" />
 
 **Future activities**
-- TBC: Meeting in December
-- TBC: Semester-2 meetings
-
+- 2026-Feb: 
+- Recurring Meetings in on last Friday of each month (at Murchison House G.04 for on-site audience)
 
 **Previous meetings**
 - 2025-06-02: First meeting!
@@ -25,6 +24,7 @@ Use this site to explore our people, projects, and publications!
 - 2025-11-27: Two members introduced their research in November group meeting!
     - Discussed future directions of the group, suggesting a page for showcasing each other's interest;
     - Talk 1&2
+- 2026-01-30: A follow-up presentation from Rui!
 
 *Geographic Distribution of Audience*
 {% include map_audience.html %}
