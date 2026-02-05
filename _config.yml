@@ -11,11 +11,6 @@ markdown: kramdown
 theme: null
 sass:
   style: expanded
-# # Meeting configuration
-# meeting_day: "last Friday"
-# meeting_time: "13:00"
-# timezone: "Europe/London"
-# Navigation menu
 nav:
   - name: Home
     link: /built-environment-edinburgh/

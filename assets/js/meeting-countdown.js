@@ -76,9 +76,26 @@ function updateCountdown() {
         timeZoneName: 'short'
     };
     
-    document.getElementById('next-meeting-date').innerHTML = 
-        `Next meeting: ${nextMeeting.toLocaleDateString('en-GB', options)}`;
-}
+    document.getElementById('meeting-countdown').innerHTML = `
+<div class="countdown-grid">
+  <div class="countdown-item">
+    <span class="countdown-number">${days}</span>
+    <span class="time-label">Days</span>
+  </div>
+  <div class="countdown-item">
+    <span class="countdown-number">${formatTime(hours)}</span>
+    <span class="time-label">Hours</span>
+  </div>
+  <div class="countdown-item">
+    <span class="countdown-number">${formatTime(minutes)}</span>
+    <span class="time-label">Minutes</span>
+  </div>
+  <div class="countdown-item">
+    <span class="countdown-number">${formatTime(seconds)}</span>
+    <span class="time-label">Seconds</span>
+  </div>
+</div>`;
+
 
 // Update every second for live countdown
 setInterval(updateCountdown, 1000);
