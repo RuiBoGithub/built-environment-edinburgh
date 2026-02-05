@@ -1,0 +1,30 @@
+<section class="meeting-stats">
+    <h2>📊 Our Progress</h2>
+    
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">{{ site.data.meetings.stats.meetings }}</div>
+        <div class="stat-label">Meetings</div>
+      </div>
+      
+      <div class="stat-item">
+        <div class="stat-number">{{ site.data.meetings.stats.presentations }}</div>
+        <div class="stat-label">PhD Presentations</div>
+      </div>
+      
+      <div class="stat-item">
+        <div class="stat-number">🎯</div>
+        <div class="stat-label">{{ site.data.meetings.stats.workshops }}</div>
+      </div>
+    </div>
+    
+    <div class="countdown-box">
+      <h3>⏰ Next Meeting In:</h3>
+      <div class="countdown-timer">
+        <span>{{ site.data.meetings.countdown.days }}d</span>
+        <span>{{ site.data.meetings.countdown.hours }}h</span>
+        <span>{{ site.data.meetings.countdown.minutes }}m</span>
+      </div>
+      <p class="meeting-schedule">Held every last Friday of the month</p>
+    </div>
+  </section>
