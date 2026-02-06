@@ -54,24 +54,25 @@ function updateCountdown() {
 
     // Calendar-style countdown
     document.getElementById('meeting-countdown').innerHTML = `
-    <div class="countdown-grid">
-      <div class="countdown-item">
-        <span class="countdown-number">${days}</span>
-        <span class="time-label">Days</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">${formatTime(hours)}</span>
-        <span class="time-label">Hours</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">${formatTime(minutes)}</span>
-        <span class="time-label">Minutes</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">${formatTime(seconds)}</span>
-        <span class="time-label">Seconds</span>
-      </div>
-    </div>`;
+<div class="countdown-grid">
+  <div class="countdown-item">
+    <span class="countdown-number">${days}</span>
+    <span class="time-label">Days</span>
+  </div>
+  <div class="countdown-item">
+    <span class="countdown-number">${formatTime(hours)}</span>
+    <span class="time-label">Hours</span>
+  </div>
+  <div class="countdown-item">
+    <span class="countdown-number">${formatTime(minutes)}</span>
+    <span class="time-label">Minutes</span>
+  </div>
+  <div class="countdown-item">
+    <span class="countdown-number">${formatTime(seconds)}</span>
+    <span class="time-label">Seconds</span>
+  </div>
+</div>`;
+
 
     // Meeting date display
     const options = {
