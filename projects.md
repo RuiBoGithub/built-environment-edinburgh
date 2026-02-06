@@ -4,7 +4,7 @@ title: Projects
 permalink: /projects/
 ---
 
-## **Projects at `Built Environment Edinburgh` community!**
+**Projects at `Built Environment Edinburgh` community!**
 
 
 - **Project 1**: Bayesian calibration guideline

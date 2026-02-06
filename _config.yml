@@ -8,7 +8,7 @@ url: "https://ruibogithub.github.io"
 baseurl: "/built-environment-edinburgh"
 google_analytics: G-XXXXXXX
 markdown: kramdown
-theme: null
+theme: jekyll-theme-cayman
 sass:
   style: expanded
 nav:
