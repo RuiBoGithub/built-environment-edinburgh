@@ -19,7 +19,7 @@ It is a PhD student-led group at the [University of Edinburgh](https://www.ed.ac
     </div>
 </div>
 
-<script src="{{ '/assets/js/meeting-countdown.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/meeting-countdown.js' | relative_url }}"></script>
 
 <img src="image_logo.png" alt="alt text" style="width:95%;" />
 
