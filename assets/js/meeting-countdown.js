@@ -1,49 +1,52 @@
 /* ---------- Inject countdown CSS automatically ---------- */
 (function addCountdownStyles(){
-  if(document.getElementById("countdown-style")) return;
-
-  const style = document.createElement("style");
-  style.id = "countdown-style";
-  style.textContent = `
-  .countdown-grid{
-      display:flex;
-      justify-content:center;
-      gap:18px;
-      flex-wrap:wrap;
-      margin:12px 0;
-      font-family: system-ui, -apple-system, Arial, sans-serif;
-  }
-
-  .countdown-item{
-      text-align:center;
-      min-width:85px;
-  }
-
-  .countdown-number{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      width:80px;
-      height:80px;
-      background:#000;
-      color:#fff;
-      font-size:2.6rem;
-      font-weight:700;
-      border-radius:8px;
-      line-height:1;
-  }
-
-  .time-label{
-      display:block;
-      margin-top:6px;
-      font-size:0.8rem;
-      color:#555;
-      text-transform:uppercase;
-      letter-spacing:1px;
-  }
-  `;
-  document.head.appendChild(style);
-})();
+    if(document.getElementById("countdown-style")) return;
+  
+    const style = document.createElement("style");
+    style.id = "countdown-style";
+    style.textContent = `
+    .countdown-grid{
+        display:flex;
+        justify-content:center;
+        gap:18px;
+        flex-wrap:wrap;
+        margin:12px 0;
+        font-family: system-ui, -apple-system, Arial, sans-serif;
+    }
+  
+    .countdown-item{
+        text-align:center;
+        min-width:85px;
+    }
+  
+    .countdown-number{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        width:80px;
+        height:80px;
+        background:#000 !important;  /* Added !important to force */
+        color:#fff !important;       /* Added !important to force */
+        font-size:2.6rem;
+        font-weight:700;
+        border-radius:8px;
+        line-height:1;
+    }
+  
+    .time-label{
+        display:block;
+        margin-top:6px;
+        font-size:0.8rem;
+        color:#555;
+        text-transform:uppercase;
+        letter-spacing:1px;
+    }
+    `;
+    document.head.appendChild(style);
+    
+    // Debug log
+    console.log('Countdown styles injected. Check if .countdown-number background appears');
+  })();
 
 /* ---------- Calculate next last Friday ---------- */
 function getNextMeetingDate() {
