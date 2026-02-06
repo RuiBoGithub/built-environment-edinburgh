@@ -33,68 +33,62 @@ function getNextMeetingDate() {
     
     return new Date(nextMeeting.toISOString());
 }
-
 function updateCountdown() {
     const now = new Date();
     const nextMeeting = getNextMeetingDate();
-    
-    // Calculate time difference
+
     const diff = nextMeeting - now;
-    
-    // If countdown is negative (just passed), show next meeting
+
     if (diff <= 0) {
-        document.getElementById('meeting-countdown').innerHTML = 
-            `<span style="color: #27ae60;">Meeting is happening now!</span>`;
+        document.getElementById('meeting-countdown').innerHTML =
+            `<span style="color:#27ae60;">Meeting is happening now!</span>`;
         return;
     }
-    
-    // Calculate days, hours, minutes, seconds
+
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    
-    // Format with leading zeros
-    const formatTime = (time) => time.toString().padStart(2, '0');
-    
-    // Update the display
-    document.getElementById('meeting-countdown').innerHTML = 
-        `${days} <span class="time-label">days</span> ` +
-        `${formatTime(hours)} <span class="time-label">hours</span> ` +
-        `${formatTime(minutes)} <span class="time-label">minutes</span> ` +
-        `${formatTime(seconds)} <span class="time-label">seconds</span>`;
-    
-    // Update the meeting date display
-    const options = { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
+
+    const formatTime = (t) => t.toString().padStart(2, '0');
+
+    // Calendar-style countdown
+    document.getElementById('meeting-countdown').innerHTML = `
+    <div class="countdown-grid">
+      <div class="countdown-item">
+        <span class="countdown-number">${days}</span>
+        <span class="time-label">Days</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number">${formatTime(hours)}</span>
+        <span class="time-label">Hours</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number">${formatTime(minutes)}</span>
+        <span class="time-label">Minutes</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number">${formatTime(seconds)}</span>
+        <span class="time-label">Seconds</span>
+      </div>
+    </div>`;
+
+    // Meeting date display
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
         day: 'numeric',
         hour: '2-digit',
         minute: '2-digit',
-        second: '2-digit',   // ← add this
+        second: '2-digit',
         timeZoneName: 'short'
     };
-    
-    document.getElementById('meeting-countdown').innerHTML = `
-<div class="countdown-grid">
-  <div class="countdown-item">
-    <span class="countdown-number">${days}</span>
-    <span class="time-label">Days</span>
-  </div>
-  <div class="countdown-item">
-    <span class="countdown-number">${formatTime(hours)}</span>
-    <span class="time-label">Hours</span>
-  </div>
-  <div class="countdown-item">
-    <span class="countdown-number">${formatTime(minutes)}</span>
-    <span class="time-label">Minutes</span>
-  </div>
-  <div class="countdown-item">
-    <span class="countdown-number">${formatTime(seconds)}</span>
-    <span class="time-label">Seconds</span>
-  </div>
-</div>`;
+
+    document.getElementById('next-meeting-date').innerHTML =
+        `Next meeting: ${nextMeeting.toLocaleString('en-GB', options)}`;
+}
+
 
 
 // Update every second for live countdown
