@@ -130,7 +130,7 @@ function updateCountdown() {
   };
 
   document.getElementById("next-meeting-date").innerHTML =
-      `to the next meeting (${nextMeeting.toLocaleString("en-GB", options)})`;
+      `(${nextMeeting.toLocaleString("en-GB", options)})`;
 }
 
 /* ---------- Start countdown ---------- */
