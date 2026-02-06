@@ -22,16 +22,14 @@ Our next meeting will take place in:
     </div>
 </div>
 
-We warmly welcome presentations, workshops, career sharing, and other ideas you would like to share. 
-
-Contact [email](mailto:rui.bo@ed.ac.uk).
+We warmly welcome presentations, workshops, career sharing, and other ideas you would like to [share](mailto:rui.bo@ed.ac.uk). 
 
 <script defer src="{{ '/assets/js/meeting-countdown.js' | relative_url }}"></script>
 
-<img src="image_logo.png" alt="alt text" style="width:105%;" />
+<img src="image_logo.png" alt="alt text" style="width:100%;" />
 
 
-## 🗓️ Previous meetings
+**Previous meetings**
 - 2025-06-02: First meeting!
 - 2025-10-17: New semester meeting!
 - 2025-11-27: Two members introduced their research outcomes in the November group meeting!
