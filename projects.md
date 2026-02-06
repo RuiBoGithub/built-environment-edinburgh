@@ -13,7 +13,3 @@ permalink: /projects/
 > Timeline: [2026 JAN - ]
 
 - More to come
-<!-- - Project 2
-> Description: [Brief description]
->
-> Timeline: [Start date - End date] -->

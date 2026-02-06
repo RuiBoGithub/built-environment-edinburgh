@@ -5,9 +5,16 @@ permalink: /people/
 ---
 ## **Members at `Built Environment Edinburgh` community!**
 
-- Rui Bo
-> Research interests: model-based operation and control; model complexity; uncertainty quantification.
-- [Researcher 2] 
-> Research interests
-- [Researcher 3] 
-> Research interests
+<div style="display:flex; align-items:center; gap:15px;">
+  <img src="https://github.com/RuiBoGithub.png"
+       alt="username"
+       width="80"
+       height="80"
+       style="border-radius:50%;">
+  
+  <div>
+    <strong>XXX</strong><br>
+    Interests: model-based operation and control, model complexity, uncertainty quantification<br>
+    <a href="https://github.com/username">GitHub profile</a>
+  </div>
+</div>
