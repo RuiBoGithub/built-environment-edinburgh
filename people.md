@@ -13,8 +13,8 @@ permalink: /people/
        style="border-radius:50%;">
   
   <div>
-    <strong>XXX</strong><br>
+    <strong>Rui Bo</strong><br>
     Interests: model-based operation and control, model complexity, uncertainty quantification<br>
-    <a href="https://github.com/username">GitHub profile</a>
+    <a href="https://github.com/RuiBoGithub">GitHub</a>
   </div>
 </div>

@@ -21,7 +21,10 @@ Our next meeting will take place in:
         📍 Every last Friday of the month at 13:00 UK time
     </div>
 </div>
-We warmly welcome presentations, workshops, career sharing, and other ideas you would like to share. Contact [email](mailto:rui.bo@ed.ac.uk).
+
+We warmly welcome presentations, workshops, career sharing, and other ideas you would like to share. 
+
+Contact [email](mailto:rui.bo@ed.ac.uk).
 
 <script defer src="{{ '/assets/js/meeting-countdown.js' | relative_url }}"></script>
 
@@ -41,5 +44,5 @@ We warmly welcome presentations, workshops, career sharing, and other ideas you 
 
 **Main Contacts**
 
-Everyone is very welcome to join any knowledge-sharing session. Please [email](mailto:rui.bo@ed.ac.uk) for sign up.
+Everyone is very welcome to join any knowledge-sharing session. Please [email](mailto:rui.bo@ed.ac.uk) for contact.
 {% include institutions_logos.html %}
