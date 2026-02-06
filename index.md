@@ -11,17 +11,41 @@ It is a PhD student-led group at the [University of Edinburgh](https://www.ed.ac
 <!-- This is a BREAK -->
 
 ## 🗓️ Next meeting
-<div class="countdown-container">
+<style>
+  .countdown-grid{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin: 10px 0;
+  }
+  .countdown-item{
+    text-align:center;
+    min-width:90px;
+  }
+  .countdown-number{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:#000;
+    color:#fff;
+    font-size:2.6rem;
+    font-weight:700;
+    width:78px;
+    height:78px;
+    border-radius:8px;
+    line-height:1;
+  }
+  .time-label{
+    display:block;
+    margin-top:8px;
+    font-size:0.8rem;
+    color:#555;
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
+</style>
 
-    <div class="countdown-display" id="meeting-countdown">
-        <!-- Countdown will appear here -->
-        Loading countdown...
-    </div>
-    
-    <div class="meeting-schedule" id="next-meeting-date">
-        📍 Every last Friday of the month at 13:00 UK time
-    </div>
-</div>
 
 <script defer src="{{ '/assets/js/meeting-countdown.js' | relative_url }}"></script>
 
