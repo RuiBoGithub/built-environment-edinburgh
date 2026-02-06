@@ -7,7 +7,7 @@ It is a PhD student-led group at the [University of Edinburgh](https://www.ed.ac
 - **6** meetings/workshops co-created<br>
 - **4** PhD work presented<br>
 <!-- This is a break -->
-<img src="logo.png" alt="alt text" style="width:95%;" />
+<img src="logo.png" alt="alt text" style="width:105%;" />
 <!-- This is another break -->
 
 ## 🗓️ Next meeting
