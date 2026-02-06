@@ -5,12 +5,11 @@ title: Home
 ## **Welcome to `Built Environment Edinburgh` community page!**
 It is a PhD student-led group at the [University of Edinburgh](https://www.ed.ac.uk/) focused on research and knowledge exchange in *sustainable and resilient built environments*, where both internal and external participation is welcomed. So far, we have:
 - **6** meetings/workshops co-created<br>
-- **4** PhD work presented<br>
+- **4** PhD work presented
+- **11** participants from **6** institutions.<br>
 
-<img src="image_logo.png" alt="alt text" style="width:105%;" />
-<!-- This is a BREAK -->
+We sincerely invite for presentation/workshop/career sharing/...
 
-## 🗓️ Next meeting
 <div class="countdown-container">
 
     <div class="countdown-display" id="meeting-countdown">
@@ -25,7 +24,7 @@ It is a PhD student-led group at the [University of Edinburgh](https://www.ed.ac
 
 <script defer src="{{ '/assets/js/meeting-countdown.js' | relative_url }}"></script>
 
-
+<img src="image_logo.png" alt="alt text" style="width:105%;" />
 
 
 ## 🗓️ Previous meetings
