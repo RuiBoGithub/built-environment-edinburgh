@@ -6,9 +6,9 @@ title: Home
 It is a PhD student-led group at the [University of Edinburgh](https://www.ed.ac.uk/) focused on research and knowledge exchange in *sustainable and resilient built environments*, where both internal and external participation is welcomed. So far, we have:
 - **6** meetings/workshops co-created<br>
 - **4** PhD work presented<br>
-<!-- This is a break -->
-<img src="logo.png" alt="alt text" style="width:105%;" />
-<!-- This is another break -->
+
+<img src="image_logo.png" alt="alt text" style="width:105%;" />
+<!-- This is a BREAK -->
 
 ## 🗓️ Next meeting
 <div class="countdown-container">
@@ -28,10 +28,10 @@ It is a PhD student-led group at the [University of Edinburgh](https://www.ed.ac
 
 
 
-**Previous meetings**
+## 🗓️ Previous meetings
 - 2025-06-02: First meeting!
 - 2025-10-17: New semester meeting!
-- 2025-11-27: Two members introduced their research in November group meeting!
+- 2025-11-27: Two members introduced their research outcomes in the November group meeting!
     - Discussed future directions of the group, suggesting a page for showcasing each other's interest;
     - Presentation from Androniki and Rui.
 - 2026-01-30: A follow-up presentation from Rui.
