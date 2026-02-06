@@ -25,7 +25,7 @@ We warmly welcome presentations, workshops, career sharing, and other ideas you 
 
 <script defer src="{{ '/assets/js/meeting-countdown.js' | relative_url }}"></script>
 
-<img src="image_logo.png" alt="alt text" style="width:105%;" />
+<img src="logo.png" alt="alt text" style="width:105%;" />
 
 
 ## 🗓️ Previous meetings
