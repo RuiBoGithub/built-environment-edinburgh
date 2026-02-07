@@ -2,19 +2,17 @@
 layout: default
 title: Home
 ---
-Welcome to `Built Environment Edinburgh` community, a PhD student-led group at the *[University of Edinburgh](https://www.ed.ac.uk/)*{:.HL}, promoting research exchange in *sustainable and resilient built environments*{:.HL}, open to both internal and external participants.
+Welcome to `Built Environment Edinburgh` community, a PhD student-led group at the *[University of Edinburgh](https://www.ed.ac.uk/)*{:.HL}, promoting research exchange in *sustainable and resilient built environments*{:.HL}, open to both internal and external participants. 
 
+<img src="image_logo.png" alt="alt text" style="width:100%;" />
 
 So far, we have:
-- <span class="highlight-dark">6</span> meetings/workshops co-created,<br>
-- <span class="highlight-dark">4</span> PhD works presented,<br>
-- <span class="highlight-dark">11</span> participants from <span class="highlight-dark">6</span> institutions.<br>
+- **6** meetings/workshops co-created,<br>
+- **4** PhD works presented,<br>
+- **11** participants from **6** institutions.<br>
 
-
-Our next meeting will take place in:
-
+Next meeting will take place in:
 <div class="countdown-container">
-
     <div class="countdown-display" id="meeting-countdown">
         Loading countdown...
     </div>    
@@ -23,11 +21,8 @@ Our next meeting will take place in:
     </div>
 </div>
 
-We warmly welcome presentations, workshops, career sharing, and other ideas you would like to [share](mailto:rui.bo@ed.ac.uk). 
-
 <script defer src="{{ '/assets/js/meeting-countdown.js' | relative_url }}"></script>
 
-<img src="image_logo.png" alt="alt text" style="width:100%;" />
 
 
 **Previous meetings**
