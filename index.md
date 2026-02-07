@@ -5,40 +5,45 @@ title: Home
 Welcome to `Built Environment Edinburgh` community, a PhD student-led group at the *[University of Edinburgh](https://www.ed.ac.uk/)*{:.HL}, promoting research exchange in *sustainable and resilient built environments*{:.HL}, open to both internal and external participants. 
 
 <div class="hero">
-  <img src="image_logo.png" alt="Built Environment Edinburgh">
+  <img src="image_logo.png" alt="logo">
 
-  <div class="hero-overlay">
-    <span class="kw">Knowledge sharing</span>
-    <span class="kw">Career sharing</span>
+  <div class="overlay">
+    <span class="kw k1">Networking</span>
+    <span class="kw k2">Knowledge sharing</span>
+    <span class="kw k3">Career sharing</span>
   </div>
 </div>
 
 <script>
 const words = [
+  "Networking",
   "Knowledge sharing",
   "Career sharing",
-  "Networking",
-  "Built environment research",
-  "PhD dialogue"
+  "Research exchange",
+  "Built environment"
 ];
 
 const spans = document.querySelectorAll(".kw");
 
-function updateWords(){
-  spans.forEach(s => s.style.opacity = 0);
+function updateKeywords() {
+  spans.forEach(span => {
+    // random word
+    span.textContent = words[Math.floor(Math.random() * words.length)];
 
-  setTimeout(() => {
-    spans.forEach((s,i) => {
-      const w = words[(Math.floor(Math.random()*words.length))];
-      s.textContent = w;
-      s.style.opacity = 1;
-    });
-  }, 800);
+    // random scattered position near centre
+    span.style.top = 40 + Math.random()*20 + "%";
+    span.style.left = 40 + Math.random()*20 + "%";
+
+    // fade effect
+    span.style.opacity = 0.2;
+    setTimeout(() => span.style.opacity = 0.7, 300);
+  });
 }
 
-updateWords();
-setInterval(updateWords, 3500);
+updateKeywords();
+setInterval(updateKeywords, 3500);
 </script>
+
 
 So far, we have:
 - **6** meetings/workshops co-created,<br>

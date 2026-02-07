@@ -94,6 +94,8 @@ h1, h2, h3 {
 
 .hero {
   position: relative;
+  display: inline-block;
+  width: 100%;
 }
 
 .hero img {
@@ -101,23 +103,23 @@ h1, h2, h3 {
   display: block;
 }
 
-.hero-overlay {
+/* overlay container */
+.overlay {
   position: absolute;
   inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
   pointer-events: none;
 }
 
+/* general keyword style */
 .kw {
-  color: white;
-  font-size: 1.6rem;
+  position: absolute;
+  color: rgba(0,0,0,0.45);   /* low alpha */
+  font-size: 2.2rem;
   font-weight: 600;
-  opacity: 0;
-  background: rgba(0,0,0,0.4);
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: opacity 1.2s ease;
+  transform: translate(-50%, -50%);
 }
+
+/* scattered placement */
+.k1 { top: 50%; left: 45%; }
+.k2 { top: 55%; left: 60%; }
+.k3 { top: 40%; left: 52%; }
