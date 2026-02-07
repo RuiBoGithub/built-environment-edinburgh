@@ -2,10 +2,8 @@
 layout: default
 title: Home
 ---
-Welcome to <span class="highlight-dark">Built Environment Edinburgh</span> community page!
+Welcome to *Built Environment Edinburgh*{:.highlight} community page! We are a PhD student-led group at the *[University of Edinburgh](https://www.ed.ac.uk/)*{:.highlight} promoting research exchange in *sustainable and resilient built environments*{:.highlight}, open to both internal and external participants.
 
-We are a PhD student-led group at the <a href="https://www.ed.ac.uk/" class="highlight-dark">University of Edinburgh<a>
-promoting research exchange in <span class="highlight-dark">sustainable and resilient built environments</span>, open to both internal and external participants.
 
 So far, we have:
 - <span class="highlight-dark">6</span> meetings/workshops co-created,<br>
