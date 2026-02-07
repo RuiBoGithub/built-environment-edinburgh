@@ -94,7 +94,6 @@ h1, h2, h3 {
 
 .hero {
   position: relative;
-  text-align: center;
 }
 
 .hero img {
@@ -102,15 +101,23 @@ h1, h2, h3 {
   display: block;
 }
 
-.hero-text {
+.hero-overlay {
   position: absolute;
-  bottom: 20%;
-  left: 50%;
-  transform: translateX(-50%);
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  pointer-events: none;
+}
+
+.kw {
   color: white;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 600;
-  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  background: rgba(0,0,0,0.4);
   padding: 6px 12px;
   border-radius: 6px;
+  transition: opacity 1.2s ease;
 }
