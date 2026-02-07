@@ -4,46 +4,7 @@ title: Home
 ---
 Welcome to `Built Environment Edinburgh` community, a PhD student-led group at the *[University of Edinburgh](https://www.ed.ac.uk/)*{:.HL}, promoting research exchange in *sustainable and resilient built environments*{:.HL}, open to both internal and external participants. 
 
-<div class="hero">
-  <img src="image_logo.png" alt="logo">
-
-  <div class="overlay">
-    <span class="kw k1">Networking</span>
-    <span class="kw k2">Knowledge sharing</span>
-    <span class="kw k3">Career sharing</span>
-  </div>
-</div>
-
-<script>
-const words = [
-  "Networking",
-  "Knowledge sharing",
-  "Career sharing",
-  "Research exchange",
-  "Built environment"
-];
-
-const spans = document.querySelectorAll(".kw");
-
-function updateKeywords() {
-  spans.forEach(span => {
-    // random word
-    span.textContent = words[Math.floor(Math.random() * words.length)];
-
-    // random scattered position near centre
-    span.style.top = 40 + Math.random()*20 + "%";
-    span.style.left = 40 + Math.random()*20 + "%";
-
-    // fade effect
-    span.style.opacity = 0.2;
-    setTimeout(() => span.style.opacity = 0.7, 300);
-  });
-}
-
-updateKeywords();
-setInterval(updateKeywords, 3500);
-</script>
-
+<img src="image_logo.png" alt="alt text" style="width:100%;" />
 
 So far, we have:
 - **6** meetings/workshops co-created,<br>

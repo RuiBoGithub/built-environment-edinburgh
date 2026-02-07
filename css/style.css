@@ -14,6 +14,15 @@ body {
   padding: 20px;
 }
 
+a {
+  color: #6b7280;   /* soft grey */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #4a6fa5;   /* slightly darker on hover */
+}
+
 /* NAV BAR */
 .nav {
   margin: 20px 0;
@@ -92,34 +101,3 @@ h1, h2, h3 {
   letter-spacing: 1px;
 }
 
-.hero {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-}
-
-.hero img {
-  width: 100%;
-  display: block;
-}
-
-/* overlay container */
-.overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-/* general keyword style */
-.kw {
-  position: absolute;
-  color: rgba(0,0,0,0.45);   /* low alpha */
-  font-size: 2.2rem;
-  font-weight: 600;
-  transform: translate(-50%, -50%);
-}
-
-/* scattered placement */
-.k1 { top: 50%; left: 45%; }
-.k2 { top: 55%; left: 60%; }
-.k3 { top: 40%; left: 52%; }
