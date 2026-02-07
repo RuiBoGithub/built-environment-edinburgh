@@ -24,7 +24,7 @@ Next meeting will take place in:
 <script defer src="{{ '/assets/js/meeting-countdown.js' | relative_url }}"></script>
 
 
-
+---
 **Key Updates**
 - 2025-06-02: First meeting!
 - 2025-10-17: New semester meeting!
