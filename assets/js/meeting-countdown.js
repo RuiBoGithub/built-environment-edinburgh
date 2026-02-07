@@ -136,3 +136,4 @@ function updateCountdown() {
 /* ---------- Start countdown ---------- */
 setInterval(updateCountdown, 1000);
 updateCountdown();
+

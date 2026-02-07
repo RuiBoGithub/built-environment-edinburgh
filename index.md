@@ -4,7 +4,13 @@ title: Home
 ---
 Welcome to `Built Environment Edinburgh` community, a PhD student-led group at the *[University of Edinburgh](https://www.ed.ac.uk/)*{:.HL}, promoting research exchange in *sustainable and resilient built environments*{:.HL}, open to both internal and external participants. 
 
-<img src="image_logo.png" alt="alt text" style="width:100%;" />
+<div class="hero">
+  <img src="image_logo.png" alt="Built Environment Edinburgh" />
+
+  <div class="hero-text">
+    <span id="rotating-word">Knowledge sharing</span>
+  </div>
+</div>
 
 So far, we have:
 - **6** meetings/workshops co-created,<br>
@@ -35,8 +41,23 @@ Next meeting will take place in:
 
 *Geographic Distribution of Audience*
 {% include map_audience.html %}
-
+---
 **Main Contacts**
 
 Everyone is very welcome to join any knowledge-sharing session. Please [email](mailto:rui.bo@ed.ac.uk) for contact.
 {% include institutions_logos.html %}
+
+<script>
+const words = [
+  "Knowledge sharing",
+  "Career sharing",
+  "PhD networking",
+  "Built environment research"
+];
+
+let i = 0;
+setInterval(() => {
+  i = (i + 1) % words.length;
+  document.getElementById("rotating-word").textContent = words[i];
+}, 2000);
+</script>
