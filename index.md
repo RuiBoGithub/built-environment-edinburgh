@@ -25,7 +25,7 @@ Next meeting will take place in:
 
 
 
-**Previous meetings**
+**Key Updates**
 - 2025-06-02: First meeting!
 - 2025-10-17: New semester meeting!
 - 2025-11-27: Two members introduced their research outcomes in the November group meeting!
