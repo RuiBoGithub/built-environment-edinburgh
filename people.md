@@ -3,7 +3,7 @@ layout: page
 title: People
 permalink: /people/
 ---
-**Members at `Built Environment Edinburgh` community!**
+<!-- Members at `Built Environment Edinburgh` community! -->
 
 <div style="display:flex; align-items:center; gap:15px;">
   <img src="https://github.com/RuiBoGithub.png"
